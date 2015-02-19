@@ -47,6 +47,7 @@ public class SQSConnectionMetaData implements ConnectionMetaData {
         this.providerMinorVersion = 0;
         
         this.jmsxProperty = new ArrayList<String>();
+        jmsxProperty.add(SQSMessagingClientConstants.JMSX_USER_ID);
         jmsxProperty.add(SQSMessagingClientConstants.JMSX_DELIVERY_COUNT);
         jmsxProperty.add(SQSMessagingClientConstants.JMSX_GROUP_ID);
         jmsxProperty.add(SQSMessagingClientConstants.JMSX_GROUP_SEC);

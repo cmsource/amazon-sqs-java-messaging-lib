@@ -166,6 +166,10 @@ public class SQSMessageProducer implements MessageProducer, QueueSender {
         while (propertyNames.hasMoreElements()) {
             String propertyName = propertyNames.nextElement();
 
+            // This is generated from SQS message attribute "SenderId"
+            if (propertyName.equals(SQSMessagingClientConstants.JMSX_USER_ID)) {
+                continue;
+            }
             // This is generated from SQS message attribute "ApproximateReceiveCount"
             if (propertyName.equals(SQSMessagingClientConstants.JMSX_DELIVERY_COUNT)) {
                 continue;

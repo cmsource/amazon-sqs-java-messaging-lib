@@ -113,8 +113,10 @@ public class SQSMessage implements Message {
         sqsMessageID = sqsMessage.getMessageId();
         this.messageID = String.format(MESSAGE_ID_FORMAT,sqsMessageID);
         Map<String,String> systemAttributes = sqsMessage.getAttributes();
+        String senderId = systemAttributes.get(SENDER_ID);
         int receiveCount = Integer.parseInt(systemAttributes.get(APPROXIMATE_RECEIVE_COUNT));
-        
+
+        properties.put(JMSX_USER_ID, new JMSMessagePropertyValue(senderId, STRING));
         /**
          * JMSXDeliveryCount is set based on SQS ApproximateReceiveCount
          * attribute.

@@ -1210,7 +1210,7 @@ public class SQSMessageConsumerPrefetchTest {
         assertNull(msg);
 
         // verify that we did not exist early
-        assertTrue(System.currentTimeMillis() - startTime > waitTime);
+        assertTrue(System.currentTimeMillis() - startTime >= waitTime);
     }
 
     /**

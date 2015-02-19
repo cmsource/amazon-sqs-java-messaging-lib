@@ -16,6 +16,8 @@ package com.amazon.sqs.javamessaging.message;
 
 import static com.amazon.sqs.javamessaging.SQSMessagingClientConstants.APPROXIMATE_RECEIVE_COUNT;
 import static com.amazon.sqs.javamessaging.SQSMessagingClientConstants.JMSX_DELIVERY_COUNT;
+import static com.amazon.sqs.javamessaging.SQSMessagingClientConstants.JMSX_USER_ID;
+import static com.amazon.sqs.javamessaging.SQSMessagingClientConstants.SENDER_ID;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
@@ -273,6 +275,7 @@ public class SQSMessageTest {
         Acknowledger ack = mock(Acknowledger.class);
 
         Map<String,String> systemAttributes = new HashMap<String, String>();
+        systemAttributes.put(SENDER_ID, "ABCDEF");
         systemAttributes.put(APPROXIMATE_RECEIVE_COUNT, "100");
 
         Map<String, MessageAttributeValue> messageAttributes = new HashMap<String, MessageAttributeValue>();
@@ -369,6 +372,7 @@ public class SQSMessageTest {
                 myShort,
                 myByte,
                 myString,
+                JMSX_USER_ID,
                 JMSX_DELIVERY_COUNT));
 
         Enumeration<String > propertyNames = message.getPropertyNames();

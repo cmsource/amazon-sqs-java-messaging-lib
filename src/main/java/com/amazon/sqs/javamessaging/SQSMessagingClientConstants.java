@@ -54,11 +54,15 @@ public class SQSMessagingClientConstants {
     
     public static final String MESSAGE_ID_FORMAT = "ID:%s"; 
 
+    public static final String JMSX_USER_ID = "JMSXUserID";
+
     public static final String JMSX_DELIVERY_COUNT = "JMSXDeliveryCount";
     
     public static final String JMSX_GROUP_ID = "JMSXGroupID";
     
     public static final String JMSX_GROUP_SEC = "JMSXGroupSeq";
+
+    public static final String SENDER_ID = "SenderId";
 
     public static final String APPROXIMATE_RECEIVE_COUNT = "ApproximateReceiveCount";
 

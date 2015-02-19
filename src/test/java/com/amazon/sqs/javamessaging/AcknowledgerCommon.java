@@ -64,6 +64,7 @@ public class AcknowledgerCommon {
             when(sqsMessage.getMessageId()).thenReturn("MessageId" + i);
             // Add mock Attributes
             Map<String, String> mockAttributes = new HashMap<String, String>();
+            mockAttributes.put(SQSMessagingClientConstants.SENDER_ID, "ABCDEF");
             mockAttributes.put(SQSMessagingClientConstants.APPROXIMATE_RECEIVE_COUNT, "2");
             when(sqsMessage.getAttributes()).thenReturn(mockAttributes);
             
